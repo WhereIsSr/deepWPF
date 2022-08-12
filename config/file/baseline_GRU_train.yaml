@@ -1,0 +1,61 @@
+# model config
+model:
+  name: "GRU"
+  num_layers: 2
+  dropout: 0.05
+  input_size: 10
+  output_size: 1
+  hidden_size: 48
+  input_len: 144
+  output_len: 288
+  bias: true
+  batch_first: true
+  task: "train" # "train" | "test"
+  resume_path: ""
+
+# loss config
+loss:
+  name: "MSE"
+
+# optimizer config
+optimizer:
+  name: "Adam"
+  learning_rate: 0.0001
+  lr_adjust: "type1"
+
+# schedule config
+schedule:
+  name: "standard_train_sche"
+  train_epochs: 10
+  patience: 3
+
+# dataset config
+dataset:
+  name: "WindTurbineDataset"
+  path: "./data"
+  file_name: "wtbdata_245days.csv"
+  start_col: 3 # the start column of the data
+  train_days: 214
+  val_days: 16
+  test_days: 15
+  total_days: 245
+  num_turbines: 134
+  day_len: 144
+  batch_size: 64
+  position: false
+
+# checkpoint config
+checkpoint:
+  path: "./checkpoints"
+
+# device config
+device:
+  name: "gpu" # "gpu"|"cpu"
+
+is_debug: false
+
+
+
+
+
+
